@@ -12,7 +12,7 @@ module.exports = {
     const {error, value} = Joi.validate(req.body, schema)
 
     if (error) {
-      switch (error.details[0].context.key){
+      switch (error.details[0].context.key) {
         case 'email':
           res.status(400).send({
             error: 'You must provide a valid email address'
@@ -28,13 +28,13 @@ module.exports = {
             `
           })
           break
-        default:
+        default: 
           res.status(400).send({
-            error: 'Invalid registratin information'
+            error: 'Invalid registration information'
           })
-        }
+      }
     } else {
-        next()
+      next()   
     }
   }
 }
