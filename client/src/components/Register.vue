@@ -26,7 +26,7 @@
           @click="register">
           Register
         </v-btn>
-    </panel>
+      </panel>
     </v-flex>
   </v-layout>
 </template>
