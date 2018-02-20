@@ -5,7 +5,7 @@
         class="home"
         tag="span"
         :to="{
-          name: 'root'
+          name: 'songs'
         }">
         TabTracker
       </router-link>
@@ -50,7 +50,7 @@
         flat
         dark
         :to="{
-          name: 'logout'
+          name: 'songs'
         }" >
         Log Out
       </v-btn>
