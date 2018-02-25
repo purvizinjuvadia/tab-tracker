@@ -1,16 +1,18 @@
 <template>
-  <panel title="YouTube Video" class="ml-2">
+  <panel title="YouTube Video">
     <youtube
       :video-id="youtubeId"
       :player-width="800"
-      :player-height="315">
+      :player-height="330">
     </youtube>
   </panel>
 </template>
 
 <script>
 export default {
-  props: ['youtubeId']
+  props: [
+    'youtubeId'
+  ]
 }
 </script>
 

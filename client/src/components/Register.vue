@@ -2,7 +2,7 @@
   <v-layout column>
     <v-flex xs6 offset-xs3>
       <panel title="Register">
-        <form
+        <form 
           name="tab-tracker-form"
           autocomplete="off">
           <v-text-field
@@ -18,7 +18,7 @@
           ></v-text-field>
         </form>
         <br>
-        <div class="danger-alert" v-html="error"/>
+        <div class="danger-alert" v-html="error" />
         <br>
         <v-btn
           dark
@@ -62,6 +62,5 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 </style>

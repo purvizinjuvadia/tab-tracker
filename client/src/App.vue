@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <v-app>
-      <page-header/>
-      <v-content>
+      <page-header />
+      
+      <main>
         <v-container fluid>
           <router-view></router-view>
         </v-container>
-      </v-content>
+      </main>
     </v-app>
   </div>
 </template>
@@ -30,5 +31,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.danger-alert {
+  color: red;
 }
 </style>

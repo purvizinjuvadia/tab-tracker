@@ -4,64 +4,64 @@
       <panel title="Song Metadata">
         <v-text-field
           label="Title"
-          v-model="song.title"
           required
-          :rules = "[required]"
+          :rules="[required]"
+          v-model="song.title"
         ></v-text-field>
 
         <v-text-field
           label="Artist"
-          v-model="song.artist"
           required
-          :rules = "[required]"
+          :rules="[required]"
+          v-model="song.artist"
         ></v-text-field>
 
         <v-text-field
           label="Genre"
-          v-model="song.genre"
           required
-          :rules = "[required]"
+          :rules="[required]"
+          v-model="song.genre"
         ></v-text-field>
 
         <v-text-field
           label="Album"
-          v-model="song.album"
           required
-          :rules = "[required]"
+          :rules="[required]"
+          v-model="song.album"
         ></v-text-field>
 
         <v-text-field
           label="Album Image Url"
-          v-model="song.albumImageUrl"
           required
-          :rules = "[required]"
+          :rules="[required]"
+          v-model="song.albumImageUrl"
         ></v-text-field>
 
         <v-text-field
-          label="Youtube Id"
-          v-model="song.youtubeId"
+          label="YouTube ID"
           required
-          :rules = "[required]"
+          :rules="[required]"
+          v-model="song.youtubeId"
         ></v-text-field>
       </panel>
     </v-flex>
 
     <v-flex xs8>
-      <panel title="Songs Structure" class="ml-2">
+      <panel title="Song Structure" class="ml-2">
         <v-text-field
-          label="Lyrics"
-          v-model="song.lyrics"
-          required
-          :rules = "[required]"
+          label="Tab"
           multi-line
+          required
+          :rules="[required]"
+          v-model="song.tab"
         ></v-text-field>
 
         <v-text-field
-          label="Tab"
-          v-model="song.tab"
-          required
-          :rules = "[required]"
+          label="Lyrics"
           multi-line
+          required
+          :rules="[required]"
+          v-model="song.lyrics"
         ></v-text-field>
       </panel>
 
@@ -73,7 +73,7 @@
         dark
         class="cyan"
         @click="save">
-       Save Song
+        Save Song
       </v-btn>
     </v-flex>
   </v-layout>
@@ -81,6 +81,7 @@
 
 <script>
 import SongsService from '@/services/SongsService'
+
 export default {
   data () {
     return {
@@ -135,7 +136,4 @@ export default {
 </script>
 
 <style scoped>
-  .danger-alert {
-    color: red
-  }
 </style>

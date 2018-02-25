@@ -9,6 +9,7 @@
 
 <script>
 import _ from 'lodash'
+
 export default {
   data () {
     return {
@@ -37,5 +38,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+
 </style>

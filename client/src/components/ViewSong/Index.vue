@@ -2,54 +2,34 @@
   <div>
     <v-layout>
       <v-flex xs6>
-        <song-metadata :song="song"/>
+        <song-metadata :song="song" />
       </v-flex>
 
       <v-flex xs6 class="ml-2">
-        <you-tube :youtubeId="song.youtubeId"/>
+        <you-tube :youtubeId="song.youtubeId" />
       </v-flex>
     </v-layout>
 
-    <v-layout>
-
-      <v-flex xs6 class="mt-2 ml-2">
-        <tab :song="song"/>
-      </v-flex>
-
-      <v-flex xs6 class="ml-2 mt-2">
-        <lyrics :song="song"/>
-      </v-flex>
-
-
-    </v-layout>
-
-
-<!--    <v-layout>
+    <v-layout class="mt-2">
       <v-flex xs6>
-        <panel title="YouTube Video">
-          youtube embedded
-        </panel>
+        <tab :song="song" />
       </v-flex>
-
 
       <v-flex xs6 class="ml-2">
-        <panel title="Lyrics">
-          <textarea
-            readonly
-            v-model="song.lyrics"
-          ></textarea>
-        </panel>
+        <lyrics :song="song" />
       </v-flex>
-    </v-layout> -->
+    </v-layout>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
+import Lyrics from './Lyrics'
+import Tab from './Tab'
+import SongMetadata from './SongMetadata'
+import YouTube from './YouTube'
 import SongsService from '@/services/SongsService'
-import SongMetadata from '@/components/ViewSong/SongMetadata'
-import YouTube from '@/components/ViewSong/YouTube'
-import Lyrics from '@/components/ViewSong/Lyrics'
-import Tab from '@/components/ViewSong/Tab'
+import SongHistoryService from '@/services/SongHistoryService'
 
 export default {
   data () {
@@ -57,9 +37,22 @@ export default {
       song: {}
     }
   },
+  computed: {
+    ...mapState([
+      'isUserLoggedIn',
+      'user',
+      'route'
+    ])
+  },
   async mounted () {
-    const songId = this.$store.state.route.params.songId
+    const songId = this.route.params.songId
     this.song = (await SongsService.show(songId)).data
+
+    if (this.isUserLoggedIn) {
+      SongHistoryService.post({
+        songId: songId
+      })
+    }
   },
   components: {
     SongMetadata,
@@ -71,5 +64,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

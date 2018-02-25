@@ -13,7 +13,8 @@
           v-model="password"
         ></v-text-field>
         <br>
-        <div class="danger-alert" v-html="error"></div>
+        <div class="danger-alert" v-html="error" />
+        <br>
         <v-btn
           dark
           class="cyan"
@@ -56,6 +57,5 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 </style>
